@@ -1,0 +1,128 @@
+@font-face 
+{ 
+    font-family: 华文行楷; /*这里是说明调用来的字体名字*/ 
+    src: url('STXINGKA.TTF'); /*这里是字体文件路径*/ 
+    
+}
+@font-face
+{
+    font-family: 字体管家娜娜;
+    src: url('字体管家娜娜.ttf');
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 华文行楷;
+    
+}
+body
+{
+    background: url(qianlan.jpg);
+}
+#bigbox
+{
+    font-size: 23px;
+    width: 450px;
+    /* height: 500px; */
+    border: solid 1px ;
+    /* text-align: center; */
+    /* background-color: white; */
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    /* -ms-transform: translate(-50%, -50%); */
+    /* -moz-transform: translate(-50%, -50%); */
+    /* -o-transform: translate(-50%, -50%); */
+    transform: translate(-50%, -50%);
+}
+#littlebox
+{
+    display: flex;
+    /* border-bottom: solid 1px; */
+    font-size: 30px;
+}
+#box1
+{
+    /* margin-top: 10px; */
+    border-right: solid 1px;
+    width: 50%;
+    /* float: left; */
+    text-align: center;
+    border-bottom: solid 1px;
+}
+#box2
+{
+    /* margin-top: 10px; */
+    width: 50%;
+    text-align: center;
+    border-bottom: solid 1px;
+}
+.click
+{
+    margin-top: 10px;
+}
+#box3
+{
+    display: flex;
+    border-bottom: solid 1px;
+}
+#box4
+{
+    text-align: right;
+    width: 40%;
+}
+#box5
+{
+    text-align: left;
+    width: 60%;
+}
+#button1,#button2
+{
+    text-align: center;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+.confirm
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    height: 40px;
+    width: 75px;
+}
+.inputname
+{
+    margin-bottom: 10px;
+}
+input
+{
+    height: 20px;
+    width: 150px;
+    font-size: 15px;
+    margin-bottom: 10px;
+    border-radius: 7px;
+    font-family: 微软雅黑;
+}
+#inputusername
+{
+    margin-top: 10px;
+}
+#username
+{
+    margin-top: 10px;
+}
+#persuade1,#persuade2
+{
+    margin: 0;
+    font-family: 字体管家娜娜体;
+    text-align: center;
+    font-size: 15px;
+}
+.extra
+{
+    /* margin-top: 5%; */
+    margin-left: 10%;
+    font-family: 微软雅黑;
+    color: red;
+    font-size: 15px;
+}
