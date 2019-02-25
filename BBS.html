@@ -1,0 +1,40 @@
+<!Doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>BBS</title>
+    <script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bbs.css">
+    <script src="js/page.js"></script>
+</head>
+
+<body>
+    <div id="bbs">
+        <div style="text-align: right" id="login">想要留言吗，快<a href="login.html">登录</a>吧</div>
+        <h1 style="text-align: center;font-size: 70px">请开始你的表演</h1>
+        <div id="inputbigbox">
+            <div id='inputname'>请写下你的留言</div>
+            <div id='inputtextbox'>
+                <textarea class='textarea' rows='20' id="msg"></textarea>
+            </div>
+            <div id='bbsconfirm'>
+                <button onclick='bbsfunction()'>留言</button>
+            </div>
+        </div>
+        <p id='err_box2'></p>
+        <p class="msgtime"></p>
+        <div id='pagebox'>
+            <!-- <p></p> -->
+            <!-- <label><a id="left" href="#">上一页</a></label>   -->
+            <!-- <label class="active"><a id="page" href="#">1</a></label> -->
+            <!-- <label><a id="right" href="#">下一页</a></label> -->
+            <label id="left" class='pagebtn'>上一页</label>
+            <label id='pagenum'></label>
+            <label id="right" class='pagebtn'>下一页</label>
+            <label>共<label id='totalpage'></label>页，当前为第<label class="active" id="page">1</label>页</label>
+        </div>
+    </div>
+</body>
+
+</html>

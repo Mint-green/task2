@@ -1,0 +1,230 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>带头像三级评论回复html+css代码</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .feed {
+            font-family: "微软雅黑";
+            width: 720px;
+            margin: 8px 0;
+        }
+
+        .avatar {
+            width: 50px;
+            float: left;
+            margin: 0 8px 0 0;
+            box-shadow: 0 0 3px #e0e0e0;
+            border-radius: 5px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .feed .avatar img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .feed .box1 {
+            width: 640px;
+            float: left;
+            background: #f6f6f6;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+        }
+
+        .feed .box1 .current {
+            font-size: 14px;
+            margin: 8px;
+        }
+
+        .feed .box1 .info {
+            margin: 0 8px;
+        }
+
+        .feed .box1 .info span {
+            float: right;
+        }
+
+        .feed .box1 .line {
+            padding: 8px 0 0 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .feed .box1 .box2 {
+            margin: 8px;
+            padding: 0 0 8px 0;
+            border-bottom: 1px dashed #ccc;
+        }
+
+        .feed .box1 .box2_comments {
+            width: 560px;
+            overflow: hidden;
+            float: left;
+        }
+
+        .feed .box1 .say {
+            margin: 0 0 8px;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .feed .box1 .box2_comments .box3 {
+            margin: 8px 0;
+        }
+
+        .feed .box1 .box2_comments .box3_comments {
+            float: left;
+            width: 500px;
+        }
+
+        .reply_area {
+            border: 1px solid #e0e0e0;
+            height: 30px;
+            line-height: 30px;
+            width: 620px;
+            margin: 8px;
+            color: #666;
+            font-size: 12px;
+            font-family: "微软雅黑";
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li class="feed">
+            <div class="avatar">
+                <img src="images/user.jpg" alt="" />
+            </div>
+            <!--第一层循环start-->
+            <div class="box1">
+                <p class='current'>
+                    <a href="">user</a>
+                    说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容
+                </p>
+                <p class='info'>
+                    <span><a href="">删除</a><a href="">评论</a></span>
+                    <strong>刚刚</strong>
+                    通过QQ空间
+                </p>
+                <p class="line">
+                </p>
+                <!--第二层循环start-->
+                <div class="box2">
+                    <div class="avatar">
+                        <img src="images/user.jpg" alt="" />
+                    </div>
+                    <div class="box2_comments">
+                        <p class='say'>
+                            <a href="">user</a>
+                            说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容
+                        </p>
+                        <p>
+                            <strong>刚刚</strong>
+                            <a href="">删除</a>
+                            <a href="">回复</a>
+                        </p>
+                        <!--第三层循环start-->
+                        <div class="box3">
+                            <div class="avatar">
+                                <img src="images/user.jpg" alt="" />
+                            </div>
+                            <div class="box3_comments">
+                                <p class='say'>
+                                    <a href="">user</a>
+                                    说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容
+                                </p>
+                                <p>
+                                    <strong>刚刚</strong>
+                                    <a href="">删除</a>
+                                    <a href="">回复</a>
+                                </p>
+                            </div>
+                            <div class="clear">
+                            </div>
+                        </div>
+                        <!--第三层循环end-->
+                    </div>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="box2">
+                    <div class="avatar">
+                        <img src="images/user.jpg" alt="" />
+                    </div>
+                    <div class="box2_comments">
+                        <p class='say'>
+                            <a href="">user</a>
+                            说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容
+                        </p>
+                        <p>
+                            <strong>刚刚</strong>
+                            <a href="">删除</a>
+                            <a href="">回复</a>
+                        </p>
+                        <!--第三层循环start-->
+                        <div class="box3">
+                            <div class="avatar">
+                                <img src="images/user.jpg" alt="" />
+                            </div>
+                            <div class="box3_comments">
+                                <p class='say'>
+                                    <a href="">user</a>
+                                    说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容
+                                </p>
+                                <p>
+                                    <strong>刚刚</strong>
+                                    <a href="">删除</a>
+                                    <a href="">回复</a>
+                                </p>
+                            </div>
+                            <div class="clear">
+                            </div>
+                        </div>
+                        <div class="box3">
+                            <div class="avatar">
+                                <img src="images/user.jpg" alt="" />
+                            </div>
+                            <div class="box3_comments">
+                                <p class='say'>
+                                    <a href="">user</a>
+                                    说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容说说内容
+                                </p>
+                                <p>
+                                    <strong>刚刚</strong>
+                                    <a href="">删除</a>
+                                    <a href="">回复</a>
+                                </p>
+                            </div>
+                            <div class="clear">
+                            </div>
+                        </div>
+                        <!--第三层循环end-->
+                    </div>
+                    <div class="clear">
+                    </div>
+                </div>
+                <!--第二层循环end-->
+                <p class="line">
+                </p>
+                <textarea name="" class="reply_area">
+                         我也说两句
+                     </textarea>
+            </div>
+            <!--第一层循环end-->
+            <div class="clear">
+            </div>
+        </li>
+    </ul>
+</body>
+
+</html>
