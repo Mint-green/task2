@@ -6,11 +6,14 @@ $username=$_POST['username'];
 $password=$_POST['password'];
 $checkpwd=$_POST['checkpwd'];
 
-$con=mysqli_connect('localhost','root','','test1');
+// $con=mysqli_connect('localhost','root','','test1');
+$ini= parse_ini_file("login.ini");
+$con =mysqli_connect($ini["servername"],$ini["username"],$ini["password"],$ini["dbname"]);
 if(!$con){
     die("连接错误:".mysqli_connect_error());
     echo '数据库连接错误';
 }
+mysqli_query($con,"SET NAMES utf8mb4");
 // else {
 //     echo '连接成功';
 // }
