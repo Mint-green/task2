@@ -18,18 +18,27 @@
 body
 {
     background: url('../source/backgd.jpg');
+    background-size: 100%;
+}
+@media screen and (max-width: 1300px) {
+    body {
+        background: url('../source/backgdforphone3.0.jpg');
+        background-size: 100%;
+    }
 }
 #bigbox
 {
     font-size: 23px;
-    width: 450px;
+    width: 400px;
     /* height: 500px; */
     border: solid 1px ;
     /* text-align: center; */
     /* background-color: white; */
     position: absolute;
+    /* background: url('../source/qianlan.jpg'); */
     top: 30%;
     left: 50%;
+    border-radius: 5px;
     /* -ms-transform: translate(-50%, -50%); */
     /* -moz-transform: translate(-50%, -50%); */
     /* -o-transform: translate(-50%, -50%); */

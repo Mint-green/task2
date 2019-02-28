@@ -1,3 +1,9 @@
+function myplus(value){
+    var value;
+    if(value.length==0){ return "" }
+    v = value.replace(/\+/g,"%2B");
+    return v;
+}
 
 function html_encode(str) {
     var s;
@@ -5,10 +11,10 @@ function html_encode(str) {
     s = str.replace(/&/g, "&gt;");
     s = s.replace(/</g, "&lt;");
     s = s.replace(/>/g, "&gt;");
-    s = s.replace(/\s/g, "&nbsp;");
+    // s = s.replace(/\s/g, "&nbsp;");
     s = s.replace(/\'/g, "&#39;");
     s = s.replace(/\"/g, "&quot;");
-    s = s.replace(/\n/g, "<br>");
+    s = s.replace(/\n/g, "<br/>");
     return s;
 }
 
@@ -62,7 +68,7 @@ request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
 request.send();
 // var resultmsg;
-request.onreadystatechange = function (){
+request.onreadystatechange = function () {
     if (this.readyState == 4) {
         if (this.status == 200) {
 
@@ -128,7 +134,7 @@ request.onreadystatechange = function (){
                 document.body.scrollTop = 0;
                 document.documentElement.scrollTop = 0;
             }
-            
+
             // console.log(resultmsg);
 
         } else {
@@ -151,10 +157,14 @@ function bbsfunction() {
                 var res1result = JSON.parse(res1.responseText);
                 if (res1result.errcode === 0) {
                     //执行插入留言
+                    if (document.getElementById("msg").value == '') {
+                        alert('请先留言再提交');
+                        return;
+                    }
                     var res2 = new XMLHttpRequest();
                     res2.open('POST', 'php/insertmsg.php')
                     res2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                    var data = "username=" + document.getElementById('loginuser').innerHTML + "&msg=" + document.getElementById("msg").value;
+                    var data = "username=" + document.getElementById('loginuser').innerHTML + "&msg=" + myplus(document.getElementById("msg").value);
 
                     res2.send(data);
 
@@ -170,6 +180,7 @@ function bbsfunction() {
                                 //     '<button id="change' + res2result.id + '" onclick="changefunction()" class="button">更改</button>' +
                                 //     '<button id="delete' + res2result.id + '" onclick="deletefunction()" class="button">删除</button>' +
                                 //     '</div>' + '</div>' + '</div>';
+                                // alert(document.getElementById("msg").value);
                                 document.getElementById("msg").value = null;
                                 window.location.reload();
                             }
@@ -185,9 +196,9 @@ function bbsfunction() {
 
 //更改留言
 function changefunction() {
-    
+
     var getid1 = event.target.id
-    var getid = getid1.substring(6,10);
+    var getid = getid1.substring(6, 10);
     var getid2 = 'content-box' + getid;
     var getid3 = 'content-username' + getid;
     var contentusername = document.getElementById(getid3).innerText;
@@ -197,24 +208,24 @@ function changefunction() {
     request.open('POST', 'php/vertify.php', true);
     request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     request.send();
-    request.onreadystatechange = function(){
-        if(request.readyState == 4){
-            if(request.status == 200){
+    request.onreadystatechange = function () {
+        if (request.readyState == 4) {
+            if (request.status == 200) {
                 var result = JSON.parse(request.responseText);
-                if(result.errcode === 0){
-                    if(result.errmsg === contentusername){
+                if (result.errcode === 0) {
+                    if (result.errmsg === contentusername) {
                         document.getElementById(getid2).innerHTML +=
-                        '<div id="textbox"' + getid + '><textarea id="text' + getid + '" class="inputtextbox" rows="10" col="200"></textarea>' +
-                        '<div class="confirmbutton"><button id="confirm' + getid + '" onclick="realchange()">确认更改</button>' +
-                        '</div></div>';
+                            '<div id="textbox"' + getid + '><textarea id="text' + getid + '" class="inputtextbox" rows="10" col="200"></textarea>' +
+                            '<div class="confirmbutton"><button id="confirm' + getid + '" onclick="realchange()">确认更改</button>' +
+                            '</div></div>';
                         alert(getid1);
-                        document.getElementById(getid1).disabled=true;
+                        document.getElementById(getid1).disabled = true;
 
 
-                    }else{
+                    } else {
                         alert('不能更改别人的留言哦，想要毁灭不好的东西？');
                     }
-                }else{
+                } else {
                     alert('请先登录再更改留言');
                 }
             }
@@ -224,22 +235,22 @@ function changefunction() {
 
 }
 
-function realchange(){
+function realchange() {
     var changeid1 = event.target.id;
-    var changeid = changeid1.substring(7,11);
+    var changeid = changeid1.substring(7, 11);
     var changeid2 = 'text' + changeid;
     var changeid3 = 'content-box' + changeid;
     var textcontent = document.getElementById(changeid2).value;
     // alert(textcontent);
 
     var req = new XMLHttpRequest();
-    req.open('POST','php/changemsg.php');
-    req.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    req.open('POST', 'php/changemsg.php');
+    req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     req.send('id=' + changeid + '&msg=' + textcontent);
 
-    req.onreadystatechange = function(){
-        if(req.readyState === 4){
-            if(req.status === 200){
+    req.onreadystatechange = function () {
+        if (req.readyState === 4) {
+            if (req.status === 200) {
                 // var reqresult = JSON.parse(req.responseText);
                 // document.getElementById(changeid3).innerHTML = 
                 // '<div id="content-box' + reqresult.id + '"><div class="content-box"><div class="content">' +
@@ -295,14 +306,14 @@ function deletefunction() {
                             if (res2.readyState == 4) {
                                 if (res2.status == 200) {
                                     var res2result = JSON.parse(res2.responseText);
-                                    if(res2result.errcode===0){
+                                    if (res2result.errcode === 0) {
                                         alert(res2result.errmsg);
                                         // var getid2 = "content-box" + getid;
                                         // alert(getid2);
                                         // document.getElementById(getid2).innerHTML = null;
                                         window.location.reload();
                                     }
-                                    
+
                                 }
                             }
                         }

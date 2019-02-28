@@ -78,3 +78,7 @@ body
     /* background-color: rgb(51,133,255); */
     color: blue;
 }
+.msgtime
+{
+    font-size: 5px;
+}

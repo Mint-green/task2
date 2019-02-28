@@ -38,7 +38,7 @@ function login() {
     document.getElementById("box1").style.borderBottom= 0;
     document.getElementById("box2").style.borderBottom= 'solid 1px';
     //清除错误显示框内容
-    document.getElementById("demo").innerHTML = null;
+    // document.getElementById("demo").innerHTML = null;
     document.getElementById("err_boxusername").innerHTML = null;
     document.getElementById("err_boxpwd").innerHTML = null;
     document.getElementById("err_boxresult").innerHTML = null;
@@ -60,7 +60,7 @@ function signup() {
     document.getElementById("box2").style.borderBottom= 0;
     document.getElementById("box1").style.borderBottom= 'solid 1px';
 
-    document.getElementById("demo").innerHTML = null;
+    // document.getElementById("demo").innerHTML = null;
     document.getElementById("err_boxusername").innerHTML = null;
     document.getElementById("err_boxpwd").innerHTML = null;
     document.getElementById("err_boxresult").innerHTML = null;
@@ -73,7 +73,7 @@ function signup() {
 
 //注册的函数
 function zcfunction() {
-    document.getElementById("demo").innerHTML = null;
+    // document.getElementById("demo").innerHTML = null;
     document.getElementById("err_boxusername").innerHTML = null;
     document.getElementById("err_boxpwd").innerHTML = null;
     document.getElementById("err_boxresult").innerHTML = null;
@@ -132,7 +132,7 @@ function zcfunction() {
 
 //登录的函数
 function dlfunction() {
-    document.getElementById("demo").innerHTML = null;
+    // document.getElementById("demo").innerHTML = null;
     document.getElementById("err_boxusername").innerHTML = null;
     document.getElementById("err_boxpwd").innerHTML = null;
     document.getElementById("err_boxresult").innerHTML = null;
@@ -140,7 +140,7 @@ function dlfunction() {
 
     var x = document.getElementById("username").value;
     var y = document.getElementById("password").value;
-    document.getElementById("demo").innerHTML = Date();
+    // document.getElementById("demo").innerHTML = Date();
 
     var request = new XMLHttpRequest();
     request.open('POST', 'php/login.php', true);
