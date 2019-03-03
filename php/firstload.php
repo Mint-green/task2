@@ -13,7 +13,7 @@ if(!$con){
     echo '数据库连接错误';
 }
 mysqli_query($con,"SET NAMES utf8mb4");
-$all=mysqli_query($con,"select * From messages ");
+$all=mysqli_query($con,"SELECT * FROM messages ORDER BY id desc");
 
 // $arr=[];
 while($result=mysqli_fetch_assoc($all))

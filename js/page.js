@@ -1,7 +1,7 @@
-function myplus(value){
+function myplus(value) {
     var value;
-    if(value.length==0){ return "" }
-    v = value.replace(/\+/g,"%2B");
+    if (value.length == 0) { return "" }
+    v = value.replace(/\+/g, "%2B");
     return v;
 }
 
@@ -51,12 +51,13 @@ function dataDisplay(resultmsg, begin, end) {
     }
     for (var k = begin; k < end; k++) {
         document.getElementById("err_box2").innerHTML +=
-            '<div id="content-box' + resultmsg[k].id + '"><div class="content-box"><div class="content">' +
+            '<div id="content-box' + resultmsg[k].id + '" class="msg"><div class="content-box"><div class="content">' +
             '<div class="username"><label id="content-username' + resultmsg[k].id + '">' + resultmsg[k].username + '</label>' +
-            ' : ' + '</div>' + html_encode(resultmsg[k].msg) +
+            ' : ' + '</div>' + '<div class="msgbox">' + html_encode(resultmsg[k].msg) + '</div>' +
             '</div>' + '<div class="message">' + '<p class="msgtime">' + resultmsg[k].date + '</p>' +
-            '<button id="change' + resultmsg[k].id + '" onclick="changefunction()" class="button">更改</button>' +
-            '<button id="delete' + resultmsg[k].id + '" onclick="deletefunction()" class="button">删除</button>' +
+            '<button id="reply'  + resultmsg[k].id + '" onclick="replyfunction()"  class="button">回复</button>' + 
+            '<button id="change' + resultmsg[k].id + '" onclick="changefunction()" class="button">更改</button>' + 
+            '<button id="delete' + resultmsg[k].id + '" onclick="deletefunction()" class="button">删除</button>' + 
             '</div>' + '</div>' + '</div>';
     }
 }
@@ -173,9 +174,9 @@ function bbsfunction() {
                             if (res2.status == 200) {
                                 var res2result = JSON.parse(res2.responseText);
                                 // document.getElementById("err_box2").innerHTML +=
-                                //     '<div id="content-box' + res2result.id + '"><div class="content-box"><div class="content">' +
+                                //     '<div id="content-box' + res2result.id + '" class="msg"><div class="content-box"><div class="content">' +
                                 //     '<div class="username"><label id="content-username' + res2result.id + '">' + res2result.username + '</label>' + ' : ' +
-                                //     '</div>' + html_encode(res2result.msg) +
+                                //     '</div>' + '<div class="msgbox">' + html_encode(res2result.msg) + '</div>' +
                                 //     '</div>' + '<div class="message">' + '<p class="msgtime">' + res2result.date + '</p>' +
                                 //     '<button id="change' + res2result.id + '" onclick="changefunction()" class="button">更改</button>' +
                                 //     '<button id="delete' + res2result.id + '" onclick="deletefunction()" class="button">删除</button>' +
@@ -218,7 +219,7 @@ function changefunction() {
                             '<div id="textbox"' + getid + '><textarea id="text' + getid + '" class="inputtextbox" rows="10" col="200"></textarea>' +
                             '<div class="confirmbutton"><button id="confirm' + getid + '" onclick="realchange()">确认更改</button>' +
                             '</div></div>';
-                        alert(getid1);
+                        // alert(getid1);
                         document.getElementById(getid1).disabled = true;
 
 
@@ -231,8 +232,6 @@ function changefunction() {
             }
         }
     }
-
-
 }
 
 function realchange() {
@@ -253,9 +252,9 @@ function realchange() {
             if (req.status === 200) {
                 // var reqresult = JSON.parse(req.responseText);
                 // document.getElementById(changeid3).innerHTML = 
-                // '<div id="content-box' + reqresult.id + '"><div class="content-box"><div class="content">' +
+                // '<div id="content-box' + reqresult.id + '" class="msg"><div class="content-box"><div class="content">' +
                 // '<div class="username"><label id="content-username' + reqresult.id + '">' + reqresult.username + '</label>' + 
-                // ' : ' + '</div>' + html_encode(reqresult.msg) +
+                // ' : ' + '</div>' + '<div class="msgbox">' + html_encode(reqresult.msg) + '</div>' +
                 // '</div>' + '<div class="message">' + '<p class="msgtime">' + reqresult.date + '</p>' +
                 // '<button id="change' + reqresult.id + '" onclick="changefunction()" class="button">更改</button>' +
                 // '<button id="delete' + reqresult.id + '" onclick="deletefunction()" class="button">删除</button>' +

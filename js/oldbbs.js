@@ -1,11 +1,18 @@
 
+function myplus(value){
+    var value;
+    if(value.length==0){ return "" }
+    v = value.replace(/\+/g,"%2B");
+    return v;
+}
+
 function html_encode(str){
     var s;
     if(str.length==0){return ""}
     s=str.replace(/&/g,"&gt;");
     s=s.replace(/</g,"&lt;");
     s=s.replace(/>/g,"&gt;");
-    s=s.replace(/\s/g,"&nbsp;");
+    // s=s.replace(/\s/g,"&nbsp;");
     s=s.replace(/\'/g,"&#39;");
     s=s.replace(/\"/g,"&quot;");
     s=s.replace(/\n/g,"<br>");
@@ -33,9 +40,9 @@ request.onreadystatechange = function () {
 
             for (var k in resultmsg) {
                 document.getElementById("err_box2").innerHTML +=
-                    '<div id="content-box' + resultmsg[k].id + '"><div class="content-box"><div class="content">' +
+                    '<div id="content-box' + resultmsg[k].id + '" class="msg"><div class="content-box"><div class="content">' +
                     '<div class="username"><label id="content-username' + resultmsg[k].id + '">' + resultmsg[k].username + '</label>' + 
-                    ' : ' + '</div>' + html_encode(resultmsg[k].msg) +
+                    ' : ' + '</div>' + '</div>' + '<div class="msgbox">' + html_encode(resultmsg[k].msg) + '</div>' +
                     '</div>' + '<div class="message">' + '<p class="msgtime">' + resultmsg[k].date + '</p>' +
                     '<button id="change' + resultmsg[k].id + '" onclick="changefunction()" class="button">更改</button>' +
                     '<button id="delete' + resultmsg[k].id + '" onclick="deletefunction()" class="button">删除</button>' +
@@ -87,7 +94,7 @@ function bbsfunction() {
                     var res2 = new XMLHttpRequest();
                     res2.open('POST', 'php/insertmsg.php')
                     res2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                    var data = "username=" + document.getElementById('loginuser').innerHTML + "&msg=" + document.getElementById("msg").value;
+                    var data = "username=" + document.getElementById('loginuser').innerHTML + "&msg=" + myplus(document.getElementById("msg").value);
 
                     res2.send(data);
 
@@ -96,9 +103,9 @@ function bbsfunction() {
                             if (res2.status == 200) {
                                 var res2result = JSON.parse(res2.responseText);
                                 document.getElementById("err_box2").innerHTML +=
-                                    '<div id="content-box' + res2result.id + '"><div class="content-box"><div class="content">' +
+                                    '<div id="content-box' + res2result.id + '" class="msg"><div class="content-box"><div class="content">' +
                                     '<div class="username"><label id="content-username' + res2result.id + '">' + res2result.username + '</label>' + ' : ' +
-                                     '</div>' + html_encode(res2result.msg) +
+                                     '</div>' + '</div>' + '<div class="msgbox">' + html_encode(res2result.msg) + '</div>' +
                                     '</div>' + '<div class="message">' + '<p class="msgtime">' + res2result.date + '</p>' +
                                     '<button id="change' + res2result.id + '" onclick="changefunction()" class="button">更改</button>' +
                                     '<button id="delete' + res2result.id + '" onclick="deletefunction()" class="button">删除</button>' +
@@ -174,9 +181,9 @@ function realchange(){
             if(req.status === 200){
                 var reqresult = JSON.parse(req.responseText);
                 document.getElementById(changeid3).innerHTML = 
-                '<div id="content-box' + reqresult.id + '"><div class="content-box"><div class="content">' +
+                '<div id="content-box' + reqresult.id + '" class="msg"><div class="content-box"><div class="content">' +
                 '<div class="username"><label id="content-username' + reqresult.id + '">' + reqresult.username + '</label>' + 
-                ' : ' + '</div>' + html_encode(reqresult.msg) +
+                ' : ' + '</div>' + '</div>' + '<div class="msgbox">' + html_encode(reqresult.msg) + '</div>' +
                 '</div>' + '<div class="message">' + '<p class="msgtime">' + reqresult.date + '</p>' +
                 '<button id="change' + reqresult.id + '" onclick="changefunction()" class="button">更改</button>' +
                 '<button id="delete' + reqresult.id + '" onclick="deletefunction()" class="button">删除</button>' +
